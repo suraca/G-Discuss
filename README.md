@@ -2,6 +2,7 @@
 # G-Discuss Documentation
 
 
+---
 ## The basics, structure, and use case
 
 G-Discuss is a function-based language, where every function is the branch of a dialogue tree.
@@ -15,7 +16,7 @@ It starts with the function's name, and an open bracket. The function's end will
 Here is a *very* simple function, so that you can see how this structure will look in practice:
 
 ```
-# (This is not functional code, it is just the structure)
+// (This is not functional code, it is just the structure)
 path path_name_1 "/root"
 path path_name_2 "/Node3D"
 
@@ -158,7 +159,7 @@ These can also be compared using the supported set of operators (defined below t
 		GOTO x()
 	"Text 4" : VALUE path deaths == 5 AND VALUE path kills != 0
 		GOTO x()
-	"Text 5" : TRUEVALUE false RAND TRUEVALUE true # Returns true 50% of the time
+	"Text 5" : TRUEVALUE false RAND TRUEVALUE true //Returns true 50% of the time
 		GOTO x()
 ```
 
