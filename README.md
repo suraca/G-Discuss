@@ -37,7 +37,7 @@ options
 
 Here is the example that uses valid syntax. It demonstrated a lot of the important functionality of this tool.
 ```
-path main_path "../root/Global"
+path main_path "/root/Global"
 standin name main_path currentName
 
 def FuntionOne(
