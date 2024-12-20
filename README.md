@@ -2,7 +2,6 @@
 # G-Discuss Documentation
 
 
----
 ## The basics, structure, and use case
 
 G-Discuss is a function-based language, where every function is the branch of a dialogue tree.
