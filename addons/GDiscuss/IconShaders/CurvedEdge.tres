@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqx1fqfa71w2d"]
+
+[ext_resource type="Shader" path="res://addons/GDiscuss/DialogueDisplay.gdshader" id="1_l12ml"]
+
+[resource]
+shader = ExtResource("1_l12ml")

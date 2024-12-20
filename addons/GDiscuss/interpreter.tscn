@@ -1,0 +1,214 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4tfnykqo2b"]
+
+[ext_resource type="Script" path="res://addons/GDiscuss/Interpreter.gd" id="1_7bmng"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_8nvuf"]
+number_color = Color(0.552, 1, 0.36, 1)
+symbol_color = Color(1, 1, 0.462745, 1)
+function_color = Color(1, 0.756863, 0.905882, 1)
+member_variable_color = Color(0.619608, 0.694118, 1, 1)
+keyword_colors = {
+"ADD": Color(0.517647, 1, 0.654902, 1),
+"ADDFLAG": Color(0.517647, 1, 0.654902, 1),
+"AND": Color(0.517647, 0.827451, 0.933333, 1),
+"DIV": Color(0.517647, 1, 0.654902, 1),
+"EFFECT": Color(1, 0.188235, 0.631373, 1),
+"ELSE": Color(1, 0.670588, 0.545098, 1),
+"END": Color(1, 0.188235, 0.631373, 1),
+"FALSE": Color(1, 0.560784, 0.588235, 1),
+"FLAG": Color(1, 0.670588, 0.545098, 1),
+"GOTO": Color(1, 0.188235, 0.631373, 1),
+"MUL": Color(0.517647, 1, 0.654902, 1),
+"Mult": Color(0.517647, 1, 0.654902, 1),
+"NAND": Color(0.517647, 0.827451, 0.933333, 1),
+"NOT": Color(0.517647, 0.827451, 0.933333, 1),
+"OR": Color(0.517647, 0.827451, 0.933333, 1),
+"RAND": Color(0.517647, 0.827451, 0.933333, 1),
+"SET": Color(0.517647, 1, 0.654902, 1),
+"STATE": Color(0.380392, 0.643137, 1, 1),
+"SUB": Color(0.517647, 1, 0.654902, 1),
+"SUBFLAG": Color(0.517647, 1, 0.654902, 1),
+"TEXT": Color(0.380392, 0.643137, 1, 1),
+"TRUE": Color(1, 0.560784, 0.588235, 1),
+"UNC": Color(1, 0.670588, 0.545098, 1),
+"VALUE": Color(1, 0.670588, 0.545098, 1),
+"XOR": Color(0.517647, 0.827451, 0.933333, 1),
+"def": Color(0, 1, 1, 1),
+"false": Color(1, 0.560784, 0.588235, 1),
+"options": Color(0, 1, 0.486275, 1),
+"path": Color(1, 0.592157, 0.278431, 1),
+"true": Color(1, 0.560784, 0.588235, 1),
+"val": Color(1, 0.592157, 0.278431, 1),
+"var": Color(1, 0.592157, 0.278431, 1)
+}
+member_keyword_colors = {
+"rainbow": Color(0.556863, 1, 0.435294, 1)
+}
+color_regions = {
+"! !": Color(1, 0.0509804, 0.239216, 1),
+"\" \"": Color(0.905882, 0.792157, 0.501961, 1),
+"//": Color(0.415686, 0.545098, 0.580392, 1)
+}
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_xlhpx"]
+number_color = Color(0, 1, 0.615686, 1)
+symbol_color = Color(1, 1, 0.462745, 1)
+function_color = Color(1, 0.756863, 0.905882, 1)
+member_variable_color = Color(0.619608, 0.694118, 1, 1)
+keyword_colors = {
+"ADDFLAG": Color(0.517647, 1, 0.654902, 1),
+"AND": Color(0.517647, 0.827451, 0.933333, 1),
+"EFFECT": Color(1, 0.188235, 0.631373, 1),
+"ELSE": Color(1, 0.670588, 0.545098, 1),
+"END": Color(1, 0.188235, 0.631373, 1),
+"FLAG": Color(1, 0.670588, 0.545098, 1),
+"GOTO": Color(1, 0.188235, 0.631373, 1),
+"NAND": Color(0.517647, 0.827451, 0.933333, 1),
+"NOT": Color(0.517647, 0.827451, 0.933333, 1),
+"OR": Color(0.517647, 0.827451, 0.933333, 1),
+"RAND": Color(0.517647, 0.827451, 0.933333, 1),
+"SET": Color(0.517647, 1, 0.654902, 1),
+"STATE": Color(0.380392, 0.643137, 1, 1),
+"TEXT": Color(0.380392, 0.643137, 1, 1),
+"UNC": Color(1, 0.670588, 0.545098, 1),
+"VALUE": Color(1, 0.670588, 0.545098, 1),
+"XOR": Color(0.517647, 0.827451, 0.933333, 1),
+"def": Color(0, 1, 1, 1),
+"options": Color(0, 1, 0.486275, 1),
+"path": Color(1, 0.592157, 0.278431, 1),
+"val": Color(1, 0.592157, 0.278431, 1),
+"var": Color(1, 0.592157, 0.278431, 1)
+}
+member_keyword_colors = {
+"rainbow": Color(0.556863, 1, 0.435294, 1)
+}
+color_regions = {
+"! !": Color(1, 0.0509804, 0.239216, 1),
+"\" \"": Color(0.905882, 0.792157, 0.501961, 1),
+"//": Color(0.415686, 0.545098, 0.580392, 1)
+}
+
+[node name="Interpreter" type="Node2D"]
+script = ExtResource("1_7bmng")
+
+[node name="TextEdit" type="CodeEdit" parent="."]
+offset_left = 963.0
+offset_top = 27.0
+offset_right = 1897.0
+offset_bottom = 804.0
+theme_override_font_sizes/font_size = 15
+text = "//path is a path where flags and values are stored (In an array called FLAGS in this global script)
+//                            ADDFLAG main \"flagName\"
+//Executes as:     get_tree.get_node(main).FLAGS.append(\"flagName\")
+
+path main_path \"Node2D\"
+
+
+
+def speechOne(
+// Name, state
+STATE Steven 2
+TEXT Hello John
+options
+	\"Hello Sue\" :  UNC
+		GOTO speechTwo() // GOTO initiates the next dialogue in the sequence
+	\"You killed Steve\" :  FLAG main_path \"Evidence1\" OR FLAG main_path \"Evidence2\"
+		ADDFLAG main_path \"an_added_flag\" GOTO speechThree()
+)
+
+def speechTwo(
+STATE Steven 2
+TEXT Bye Steve
+options
+	\"Bye, Sue\" :  UNC
+		END
+)
+
+def No(
+STATE Steven 2
+TEXT Oh, no, sorry
+options
+	\"Oh, it's ok\" :  UNC
+		END
+)
+
+def Yes(
+STATE Steven 2
+TEXT Oh, yes
+options
+	\"Great, I'll see you soon\" :  UNC
+		END
+)
+
+def speechThree(
+STATE Steven 2
+TEXT You know?!?!
+options
+	\"Yes\" :  UNC
+		END
+)"
+minimap_draw = true
+syntax_highlighter = SubResource("CodeHighlighter_8nvuf")
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_tabs = true
+gutters_draw_line_numbers = true
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 26.0
+offset_top = 27.0
+offset_right = 929.0
+offset_bottom = 507.0
+text = "//path is a path where flags and values are stored (In an array called FLAGS in this global script)
+//                            ADDFLAG main \"flagName\"
+//Executes as:     get_tree.get_node(main).FLAGS.append(\"flagName\")
+
+path main_path \"GLOBAL_PATH\"
+
+var test_variable_1 \"TestVariableContents\"
+
+val test_value_1  \"internalVariable\"
+
+
+def speechOne(
+// Name, state
+STATE Steven 2
+TEXT Hello John
+options
+	\"Option unconditional\" :  UNC
+		GOTO speechTwo() // GOTO initiates the next dialogue in the sequence
+	\"Option if has flag\" :  FLAG main_path \"Elegant\" OR FLAG main_path test_variable_1
+		ADDFLAG main_path \"an_added_flag\"
+		GOTO speechTwo()
+	\"Option 3 if value is met\" :  VALUE main_path test_value_1 > 5
+		SET main_path test_value_1 89.3
+		// Compiled as get_tree().get_node(main).set(\"test_value_1\",89.3)
+		GOTO speechTwo()
+	\"Option if no others met\" :  ELSE
+		GOTO speechTwo()
+)
+
+def speechTwo(
+Steven 2
+TEXT Dialogue Done
+options
+	\"Option 1\" :  UNC
+		END
+)"
+syntax_highlighter = SubResource("CodeHighlighter_xlhpx")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 963.0
+offset_top = 845.0
+offset_right = 1897.0
+offset_bottom = 1043.0
+theme_override_font_sizes/font_size = 91
+text = "Compile"
+
+[node name="D" type="PanelContainer" parent="."]
+offset_left = 26.0
+offset_top = 536.0
+offset_right = 929.0
+offset_bottom = 1043.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
